@@ -3066,9 +3066,6 @@ class Preview extends View {
 			if ($cache->exists($hash=$fw->hash($dir.$file),$data))
 				return $data;
 			if (is_file($view=$fw->fixslashes($dir.$file))) {
-				if(isset($this->trigger['beforerender']))
-					foreach ($this->trigger['beforerender'] as $func)
-						$data=$fw->call($func, $view);
 				if (!is_file($this->file=($tmp.
 					$fw->SEED.'.'.$fw->hash($view).'.php')) ||
 					filemtime($this->file)<filemtime($view)) {
